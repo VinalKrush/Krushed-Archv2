@@ -24,7 +24,7 @@ D_Start_Installer() {
     cd $InstallerPath
     sudo mkdir -p $InstallerPath/.tmp/
     sudo touch $InstallerPath/.tmp/.info.json
-    sudo cp -rf $InstallerPath/src/R/erc/pacman.conf /etc/
+    sudo cp -rf $InstallerPath/src/R/etc/pacman.conf /etc/
     sudo cp -rf $InstallerPath/src/mirrors/us/mirrorlist /etc/pacman.d/
     loadkeys us
     timedatectl
