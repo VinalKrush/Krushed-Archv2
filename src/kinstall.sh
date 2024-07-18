@@ -4,7 +4,7 @@
 
 # Start up!
 D_Start_Installer() {
-                 --pause "Please Wait..." 10 40 10
+    dialog --title "Starting Krushed Installer..." --pause "Please Wait..." 10 40 10
         D_Welcome() {
             dialog --infobox "Welcome!" 10 40
             # pingSlave=$(fping -c5 -t300 8.8.8.8 2>/dev/null 1>/dev/null)
@@ -219,22 +219,20 @@ Base_Setup() {
 
 
 
-    install_json=$(cat <<EOF
-        {
-            "SysCpuPlat": "${D_SysCpuPlat}",
-            "SysName": "${D_SysName}",
-            "User": "${D_User}",
-            "UPasswd": "${D_UPasswd}",
-            "RPasswd": "${D_RPasswd}",
-            "SysDrive": "${D_SysDrive}",
-            "Kern": "${D_Kern}",
-            "Disp": "${D_Disp}",
-            "Krush": "${D_Krush}
-        }
-EOF    
-    )
-    echo $install_json >> $InstallerPath/.tmp/.info.json
-    clear
+        install_json='{
+        "SysCpuPlat": "${D_SysCpuPlat}",
+        "SysName": "${D_SysName}",
+        "User": "${D_User}",
+        "UPasswd": "${D_UPasswd}",
+        "RPasswd": "${D_RPasswd}",
+        "SysDrive": "${D_SysDrive}",
+        "Kern": "${D_Kern}",
+        "Disp": "${D_Disp}",
+        "Krush": "${D_Krush}
+    }'
+
+        echo $install_json >> $InstallerPath/.tmp/.info.json
+        clear
 
     sleep 5
 
