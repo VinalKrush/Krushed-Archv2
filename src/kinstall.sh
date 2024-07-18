@@ -4,9 +4,9 @@
 
 # Start up!
 D_Start_Installer() {
-    dialog --title "Starting Krushed Installer..." --pause "Please Wait..." 10 40 10
+    dialog --title "Starting Krushed Installer..." --pause "Please Wait..." 10 90 5
         D_Welcome() {
-            dialog --infobox "Welcome!" 10 40
+            dialog --infobox "Welcome!" 10 90
             # pingSlave=$(fping -c5 -t300 8.8.8.8 2>/dev/null 1>/dev/null)
             # What is reason for introducing pingSlave var :)?
             # if [ "$?" = 0 ]
@@ -43,15 +43,15 @@ clear
 
 # Base System Setup
 Base_Setup() {
-    D_SysCpuPlat=$(dialog --title "CPU Platform" --menu "Type:" 10 40 0 1 "AMD" 2 "INTEL" 3>&1 1>&2 2>&3 3>&-)
+    D_SysCpuPlat=$(dialog --title "CPU Platform" --menu "Type:" 10 90 0 1 "AMD" 2 "INTEL" 3>&1 1>&2 2>&3 3>&-)
     clear
-    D_SysName=$(dialog --inputbox "Please Enter A System Name:" 0 0 3>&1 1>&2 2>&3 3>&-)
+    D_SysName=$(dialog --inputbox "Please Enter A System Name:" 10 90 3>&1 1>&2 2>&3 3>&-)
     clear
-    D_User=$(dialog --inputbox "Please Enter A User Name:" 0 0 3>&1 1>&2 2>&3 3>&-)
+    D_User=$(dialog --inputbox "Please Enter A User Name:" 10 90 3>&1 1>&2 2>&3 3>&-)
     clear
-    D_UPasswd=$(dialog --insecure --passwordbox "Please Enter A Password For ${D_User}:" 0 0 3>&1 1>&2 2>&3 3>&-)
+    D_UPasswd=$(dialog --insecure --passwordbox "Please Enter A Password For ${D_User}:" 10 90 3>&1 1>&2 2>&3 3>&-)
     clear
-    D_RPasswd=$(dialog --insecure --passwordbox "Please Enter A Password For Root (Leave empty to disable root. Not recommended):" 0 0 3>&1 1>&2 2>&3 3>&-)
+    D_RPasswd=$(dialog --insecure --passwordbox "Please Enter A Password For Root (Leave empty to disable root. Not recommended):" 10 90 3>&1 1>&2 2>&3 3>&-)
     clear
 
 
@@ -83,7 +83,7 @@ Base_Setup() {
     echo ""
     echo "Type The Drive you Would Like To Install Linux On (Example: /dev/sda, /dev/vda, or /dev/nvme0n1)"
     echo "_______________________________________________________________________________________________"
-    read D_SysDrive
+    read
     clear
 
     lsblk
@@ -96,7 +96,7 @@ Base_Setup() {
     echo ""
     echo ""
     echo "_______________________________________________________________________________________________"
-    read
+    read D_SysDrive
     clear
     wipefs -a ${D_SysDrive}
     clear
@@ -192,7 +192,7 @@ Base_Setup() {
 
 
 
-    D_Kern=$(dialog --title "Please Select A Kernel:" --menu "Kernel:" 10 40 0 1 "Linux" 2 "Linux Zen" 3 "Linux Hardened" 4 "Linux LTS" 3>&1 1>&2 2>&3 3>&-)
+    D_Kern=$(dialog --title "Please Select A Kernel:" --menu "Kernel:" 10 90 0 1 "Linux" 2 "Linux Zen" 3 "Linux Hardened" 4 "Linux LTS" 3>&1 1>&2 2>&3 3>&-)
     clear
 
 
@@ -201,7 +201,7 @@ Base_Setup() {
 
 
 
-    D_Disp=$(dialog --title "Please Select Display Driver:" --menu "Display Driver:" 10 40 0 1 "NVIDIA" 2 "INTEL" 3 "AMD" 4 "NONE" 3>&1 1>&2 2>&3 3>&-)
+    D_Disp=$(dialog --title "Please Select Display Driver:" --menu "Display Driver:" 10 90 0 1 "NVIDIA" 2 "INTEL" 3 "AMD" 4 "NONE" 3>&1 1>&2 2>&3 3>&-)
     clear
 
 
@@ -210,7 +210,7 @@ Base_Setup() {
 
 
     
-    D_Krush=$(dialog --title "What Type Of Install Do You Want To Do:" --menu "Type:" 10 40 0 1 "Krushed Install" 2 "Minimal Install" 3>&1 1>&2 2>&3 3>&-)
+    D_Krush=$(dialog --title "What Type Of Install Do You Want To Do:" --menu "Type:" 10 90 0 1 "Krushed Install" 2 "Minimal Install" 3>&1 1>&2 2>&3 3>&-)
     clear
 
 
