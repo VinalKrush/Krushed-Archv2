@@ -37,7 +37,7 @@ D_Start_Installer() {
     clear
 
 }
-D_Start_Installer
+D_Start_Installer   
 clear
 
 
@@ -326,7 +326,7 @@ Base_Setup() {
     cp -rf $InstallerPath/src/mirrors/us/mirrorlist /mnt/etc/pacman.d/
     clear
 
-    arch-chroot /mnt sh /mnt/.krush/src/.sys-install.sh
+    arch-chroot /mnt bash /mnt/.krush/src/.sys-install.sh
     clear
 
 
