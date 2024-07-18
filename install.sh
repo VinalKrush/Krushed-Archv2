@@ -1,7 +1,7 @@
 #!/bin/bash
 
 IPath=${PWD}
-InstallPath=/.krush/
+InstallPath=/.krush
 echo "Installing Dependencies"
 sudo pacman -Sy --noconfirm --needed jq dialog fastfetch
 cd $IPath

@@ -1,4 +1,4 @@
-InstallerPath=/.krush/
+InstallerPath=/.krush
 D_SysCpuPlat= jq .SysCpuPlat $InstallerPath/.tmp/.info.json
 D_SysName= jq .SysName $InstallerPath/.tmp/.info.json
 D_User= jq .User $InstallerPath/.tmp/.info.json

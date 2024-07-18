@@ -20,7 +20,7 @@ D_Start_Installer() {
             # fi
         }        
     clear   
-    InstallerPath=/.krush/
+    InstallerPath=/.krush
     cd $InstallerPath
     sudo mkdir -p $InstallerPath/.tmp/
     sudo touch $InstallerPath/.tmp/.info.json
