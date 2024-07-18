@@ -3,17 +3,14 @@
 IPath=${PWD}
 InstallPath=/.krush/
 echo "Installing Dependencies"
-sudo pacman -Sy --noconfirm --needed jq dialog fastfetch
+sudo pacman -Sy --noconfirm --needed jq dialog fastfetch autoconf 
 
 cd $IPath
-git clone https://github.com/neurobin/shc.git
-cd shc
-./autogen.sh
-./configure
-make -s
-sudo make -s install
+git clone https://aur.archlinux.org/shc-git.git
+cd shc-git
+makepkg -si
 cd $IPath
-sudo rm -rf $IPath/shc/
+sudo rm -rf $IPath/shc-git/
 
 sudo mkdir /.krush/
 sudo cp -rf $IPath/src/ $InstallPath
