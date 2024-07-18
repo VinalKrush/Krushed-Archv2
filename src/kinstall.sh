@@ -97,7 +97,8 @@ Base_Setup() {
     echo ""
     echo "_______________________________________________________________________________________________"
     read D_SysDrive
-    clear
+    swapoff -a && clear || clear
+    umount -R /mnt && clear || clear
     wipefs -a ${D_SysDrive}
     clear
     cfdisk ${D_SysDrive}
